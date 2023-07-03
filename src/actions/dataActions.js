@@ -1,16 +1,31 @@
 import axios from 'axios';
 
-// Action Types
+
+
+
+// The first step
+
+
+////////////////// Action Types
 export const FETCH_DATA_REQUEST = 'FETCH_DATA_REQUEST';
 export const FETCH_DATA_SUCCESS = 'FETCH_DATA_SUCCESS';
 export const FETCH_DATA_FAILURE = 'FETCH_DATA_FAILURE';
 
-// Action Creators
+////////////////////// Action Creators
+
+//  1--requst  :
+//   means request data from api
+
+
 export const fetchDataRequest = () => {
   return {
     type: FETCH_DATA_REQUEST
   };
 };
+
+// 2--The function will accept a parameter that we call data to fetch data from the Api
+
+// We gave the value of the payload to return us as data
 
 export const fetchDataSuccess = (data) => {
   return {
@@ -18,6 +33,7 @@ export const fetchDataSuccess = (data) => {
     payload: data
   };
 };
+// 3-- Here will be the return error message from api
 
 export const fetchDataFailure = (error) => {
   return {
@@ -27,6 +43,7 @@ export const fetchDataFailure = (error) => {
 };
 
 // Thunk function to fetch data
+
 export const fetchData = () => {
   return (dispatch) => {
     dispatch(fetchDataRequest()); // Dispatch the request action
